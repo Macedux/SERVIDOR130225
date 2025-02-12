@@ -35,7 +35,7 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.REMOTE_KEY }}
           source: ./docker-compose.yaml  # Ensure this points to the correct file
-          target: ~/deploy/  # Target file (not a directory)
+          target: /var/www/html # Target file (not a directory)
         
       # Verificar la transferencia del archivo
       - name: Verify transfer of docker-compose.yaml
@@ -45,9 +45,9 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.REMOTE_KEY }}
           script: |
-            ls -la ~/deploy  # List the contents of the deploy directory to confirm the file is there
+            ls -la /var/www/html  # List the contents of the deploy directory to confirm the file is there
             # Also check if it's actually a file and not a directory
-            if [ -d ~/deploy/docker-compose.yaml ]; then
+            if [ -d /var/www/html/docker-compose.yaml ]; then
               echo "docker-compose.yaml is a directory!"
               exit 1
             fi
