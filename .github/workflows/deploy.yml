@@ -36,7 +36,7 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.REMOTE_KEY }}
           source: ./compose.yml
-          target: ~/deploy/
+          target: ~/deploy.yml
 
       # Desplegar la aplicación en el servidor remoto usando docker-compose
       - name: Deploy with Docker Compose
