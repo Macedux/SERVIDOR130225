@@ -35,7 +35,7 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           key: ${{ secrets.REMOTE_KEY }}
           source: ./docker-compose.yaml  # Ensure this points to the correct file
-          target: ~/deploy/docker-compose.yaml  # Target file (not a directory)
+          target: ~/deploy  # Target file (not a directory)
         
       # Verificar la transferencia del archivo
       - name: Verify transfer of docker-compose.yaml
